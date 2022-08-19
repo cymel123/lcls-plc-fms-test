@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="FB_LeakSensor" Id="{edf35063-5c21-4f6f-b575-4e42c45ab8b5}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_LeakSensor
+VAR_INPUT
+END_VA                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+END_VAR
+VAR
+
+// Resolution parameter from the BL; 
+xNC : BOOL;
+xNO : BOOL;
+eState: ENUM_LeakState;
+xLeak : BOOL;
+xError; BOOL;  
+
+	State: INT;
+	Error: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+//fLeakSensor := REAL;
+
+State = 2*NO + NC
+
+if xNC AND Xno; State = Error
+elif xNC AND NOT xNO; State = Leak    
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
