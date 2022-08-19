@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <GVL Name="GVL_Devices" Id="{f8682062-2bae-44f5-a38e-e589841e6204}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+
+ {attribute 'pytmc' := '
+            pv: FMS:RTD:01
+         '}
+
+{attribute 'TcLinkTo' := '.fTemperature := TIIB[Term 1 (EL3208)]^Channel 1^Input;
+
+'}
+fbTempSensor1 : FB_TempSensor; //edit if decided to use _2git
+
+
+{attribute 'pytmc' := '
+            pv: FMS:PCW:RTD:01
+         '}
+
+{attribute 'TcLinkTo' := '.fTemperature := TIIB[Term 1 (EL3208)]^Channel 1^Input;
+
+'}
+fbTempSensor2 : FB_TempSensor; //for PCW temp spot sensor
+ 
+
+ {attribute 'pytmc' := '
+            pv: FMS:LeakSensor:01
+         '}
+
+{attribute 'TcLinkTo' := '.fLeakSensor := TIIB[Term 1 (EL1004)]^Channel 1^Input;
+
+'}
+fbLeakSensor1 : FB_LeakSensor;
+
+ 
+
+ {attribute 'pytmc' := '
+            pv: FMS:PCW:01
+         '}
+
+{attribute 'TcLinkTo' := '.fPLCflow := TIIB[Term 1 (EL3174)]^Channel 1^Input;
+
+'}
+fbPCWflow : FB_PCWflow;
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
